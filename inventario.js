@@ -27,8 +27,24 @@ class Inventario{
 //Codigo agregar productos
 
 agregar(producto){ 
+    if(this.lista.length == o) {
+        this.lista.push(producto);
+    } else {
+        for(let i = 0; i < this.lista.length; i++){
+            if( producto.codigo < this.lista[i].codigo){
+                this.lista.length = this.lista.length + 1;
+                for(let j = this.lista.length; j > i; j--){
+                    this.list[j-1] = this.lista[j-2];
+                }
+                this.lista[i] = producto;
+                return true;
+            } else if (i == this.lista.length - 1){
+                this.lista.push(producto);
+                return true;
+            }
+        }
+    }
 
-this.lista.push(producto);
 
 }   
    
