@@ -26,27 +26,26 @@ class Inventario{
 
 //Codigo agregar productos
 
-agregar(producto){ 
-    if(this.lista.length == o) {
-        this.lista.push(producto);
-    } else {
-        for(let i = 0; i < this.lista.length; i++){
-            if( producto.codigo < this.lista[i].codigo){
-                this.lista.length = this.lista.length + 1;
-                for(let j = this.lista.length; j > i; j--){
-                    this.list[j-1] = this.lista[j-2];
-                }
-                this.lista[i] = producto;
-                return true;
-            } else if (i == this.lista.length - 1){
-                this.lista.push(producto);
-                return true;
-            }
+
+agregar(producto){
+    let i = this.lista.length;
+    if (i == 0) {
+        this.lista[i] = producto;
+        return true;
+    }
+        if (this.lista.length > 0) {
+         while (producto.codigo < this.lista[i - 1].codigo) {
+            this.lista[i] = this.lista[i - 1];
+            i--;
         }
+        this.lista[i] = producto;
+
+        return true;
     }
 
+    return false;
 
-}   
+}
    
 //Codigo eliminar productos
 
